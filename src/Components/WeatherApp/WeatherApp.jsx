@@ -18,8 +18,7 @@ const WeatherApp = () => {
     if (element[0].value === "") {
       return 0;
     }
-    let url =
-      "https://api.openweathermap.org/data/2.5/weather?q=London&units=Metric&appid=17ee74de4fcf210b11c11537c8dd64f9";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
   };
   return (
     <div className="container ">
