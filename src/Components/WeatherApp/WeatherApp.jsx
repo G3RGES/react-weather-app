@@ -12,12 +12,19 @@ import wind_icon from "../Assets/wind.png";
 import humidity_icon from "../Assets/humidity.png";
 
 const WeatherApp = () => {
-  let api_key = "59f1d0a4e5ec809d3ebcffba826f8e81";
+  let api_key = "17ee74de4fcf210b11c11537c8dd64f9";
+  const search = () => {
+    const element = document.getElementsByClassName("cityInput");
+    if (element[0].value === "") {
+      return 0;
+    } else {
+    }
+  };
   return (
     <div className="container ">
       <div className="top-bar">
         <input type="text" className="cityInput" placeholder="Search..." />
-        <div className="search-icon">
+        <div className="search-icon" onClick={() => search()}>
           <img src={search_icon} alt="" />
         </div>
       </div>
