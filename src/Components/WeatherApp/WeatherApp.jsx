@@ -17,8 +17,9 @@ const WeatherApp = () => {
     const element = document.getElementsByClassName("cityInput");
     if (element[0].value === "") {
       return 0;
-    } else {
     }
+    let url =
+      "https://api.openweathermap.org/data/2.5/weather?q=London&units=Metric&appid=17ee74de4fcf210b11c11537c8dd64f9";
   };
   return (
     <div className="container ">
