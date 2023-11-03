@@ -13,12 +13,15 @@ import humidity_icon from "../Assets/humidity.png";
 
 const WeatherApp = () => {
   let api_key = "17ee74de4fcf210b11c11537c8dd64f9";
-  const search = () => {
+  const search = async () => {
     const element = document.getElementsByClassName("cityInput");
     if (element[0].value === "") {
       return 0;
     }
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
+    let res = await fetch(url);
+    let data = res.json();
+    // console.log(data); //TESTING
   };
   return (
     <div className="container ">
