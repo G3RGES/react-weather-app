@@ -20,9 +20,20 @@ const WeatherApp = () => {
     }
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
     let res = await fetch(url);
-    let data = res.json();
+    let data = await res.json();
     // console.log(data); //TESTING
+    const humidity = document.getElementsByClassName("humidity-percent");
+    const wind = document.getElementsByClassName("wind-rate");
+    const temp = document.getElementsByClassName("weather-temp");
+    const location = document.getElementsByClassName("weather-location");
+
+    humidity[0].innerHTML = data.main.humidity;
+    wind[0].innerHTML = data.wind.speed;
+    temp[0].innerHTML = data.main.temp;
+    location[0].innerHTML = data.name;
   };
+  //* THIS WAY WAS USED SO THER'S ALWAYS A VALUE SHOWN (DEFAULT VALUE,PROBABLY WRONG TOO)
+  //* UNTIL A CITY IS SEARCHED FOR AND VALUES (CURRENT VALUES) ARE SHOWN
   return (
     <div className="container ">
       <div className="top-bar">
@@ -47,7 +58,7 @@ const WeatherApp = () => {
         <div className="element">
           <img src={wind_icon} alt="" className="icon" />
           <div className="data">
-            <div className="humidity-percent">18 km/h</div>
+            <div className="wind-rate">18 km/h</div>
             <div className="text">Wind Speed</div>
           </div>
         </div>
